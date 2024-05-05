@@ -1,0 +1,9 @@
+local args = {
+    [1] = {
+        ["drawCardPlatformId"] = 70001,
+        ["count"] = 3
+       
+    }
+}
+while count =3 :
+                   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ExtractHero"):InvokeServer(unpack(args))
