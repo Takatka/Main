@@ -1,0 +1,5 @@
+local args = {
+    [1] = 400002
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RerollOrnament"):InvokeServer(unpack(args))
