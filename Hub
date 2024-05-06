@@ -4,18 +4,17 @@ local window = PabloLib:Create(
     "Enabled",
     "p"
 )
-
+ 
 -- Tabs
-
 local tab1 = window:CreateTab("Main")
 local tab2 = window:CreateTab("Teleport")
 local tab3 = window:CreateTab("Roll")
-
--- buttons
-
+ 
+-- Buttons
 tab1:CreateButton("Lvl up Gem", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/rA0ehqfV"))()
 end)
+ 
 tab2:CreateButton("World 1", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/Teleport%20to%20world%201"))()
 end)
@@ -49,19 +48,32 @@ end)
 tab2:CreateButton("World 10", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W10"))()
 end)
+ 
 tab3:CreateButton("Mark Roll | Gotta Have Materials", function()
     local args = {
         [1] = 400001
     }
-
+ 
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RerollOrnament"):InvokeServer(unpack(args))
 end)
+ 
 
+    local autoGainPower = false
 local toggleButton = tab1:CreateToggle("Autogain Power", function(state)
-    if state then
-        print("Enabled!")
-        game:GetService("ReplicatedStorage").Remotes.PlayerClickAttack:FireServer()
-    else
-        print("Disabled!")
+game:GetService("RunService").Stepped:Connect(function()
+    if autoGainPower then
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("PlayerClickAttack"):FireServer()
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode."Autogain Power" then 
+        autoGainPower = not autoGainPower
+        print("Auto Gain Power toggled " .. (autoGainPower and "on" or "off"))
     end
-end)  
+end
+end)
+ 
+tab1:CreateTextbox("Change your Speed", function(a)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = a
+print(a)
+end)
