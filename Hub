@@ -1,79 +1,69 @@
-local PabloLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/BatuKvi123/PabloLibV3/main/PabloLibV3"))()
-local window = PabloLib:Create(
-    "All universe hub | blade slayer",
-    "Enabled",
-    "p"
-)
- 
--- Tabs
-local tab1 = window:CreateTab("Main")
-local tab2 = window:CreateTab("Teleport")
-local tab3 = window:CreateTab("Roll")
- 
--- Buttons
-tab1:CreateButton("Lvl up Gem", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/rA0ehqfV"))()
-end)
- 
-tab2:CreateButton("World 1", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/Teleport%20to%20world%201"))()
-end)
-tab2:CreateButton("World 2", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W2"))()
-end)
-tab2:CreateButton("World 3", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W3"))()
-end)
-tab2:CreateButton("World 4", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/780ce8a1dc0f29da2789628efe9cbf45d1585561/W4"))()
-end)
-tab1:CreateButton("Anti-lag", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Lenx12/All-Universe-Hub/main/AntiLag'))()
-end)
-tab2:CreateButton("World 5", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/780ce8a1dc0f29da2789628efe9cbf45d1585561/W5"))()
-end)
-tab2:CreateButton("World 6", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W6"))()
-end)
-tab2:CreateButton("World 7", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W7"))()
-end)
-tab2:CreateButton("World 8", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W8"))()
-end)
-tab2:CreateButton("World 9", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W9"))()
-end)
-tab2:CreateButton("World 10", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W10"))()
-end)
- 
-tab3:CreateButton("Mark Roll | Gotta Have Materials", function()
-    local args = {
-        [1] = 400001
-    }
- 
-    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RerollOrnament"):InvokeServer(unpack(args))
-end)
- 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-    local autoGainPower = false
-local toggleButton = tab1:CreateToggle("Autogain Power", function(state)
-game:GetService("RunService").Stepped:Connect(function()
-    if autoGainPower then
-        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("PlayerClickAttack"):FireServer()
-end)
+--window
+local Window = OrionLib:MakeWindow({Name = "All universe hub kamehameha sim", HidePremium = false, IntroText = "All universe hub", SaveConfig = true, ConfigFolder = "OrionTest"})
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode."Autogain Power" then 
-        autoGainPower = not autoGainPower
-        print("Auto Gain Power toggled " .. (autoGainPower and "on" or "off"))
+--tabs
+local mainTab = Window:MakeTab({
+  Name = "main",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+--section
+local Section = mainTab:AddSection({
+  Name = "farm"
+})
+
+--values
+getgenv().punch = false
+
+
+--functionns
+function dopunch()
+while getgenv().punch == true do
+local args = {
+    [1] = 1
+}
+
+game:GetService("Players").LocalPlayer.Character.Punch.Event:FireServer(unpack(args))
+
+    wait(0.1)
+      end
+    end 
+
+--toggles
+mainTab:AddToggle({
+  Name = "auto sell",
+  Default = false,
+  Callback = function(bool)
+    getgenv().punch = bool
+    if bool then 
+      dopunch()
     end
-end
-end)
- 
-tab1:CreateTextbox("Change your Speed", function(a)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = a
-print(a)
-end)
+  end})
+--buttons
+mainTab:AddButton({
+  Name = "maximum multiple!",
+  Callback = function()
+      local args = {
+        [1] = 40 * 1000
+      }
+
+      game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("DoublePower"):FireServer(unpack(args))
+          print("button pressed")
+    end    
+})
+--buttons
+mainTab:AddButton({
+  Name =  " instant 5 b power ",
+  Callback = function()
+local args = {
+    [1] = "Power",
+    [2] = 1000000000 *5
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ClaimReward"):FireServer(unpack(args))
+           print("buttonpressed")
+    end    
+})
