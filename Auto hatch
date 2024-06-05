@@ -1,8 +1,169 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+--window
+local Window = OrionLib:MakeWindow({Name = "All universe hub ", HidePremium = false, IntroText = "All universe hub", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--tabs
+local mainTab = Window:MakeTab({
+  Name = "main",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+local serectTab = Window:MakeTab({
+  Name = "Serect",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+local hatch= Window:MakeTab({
+  Name = "hatching",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+local autogainTab = Window:MakeTab({
+  Name = "auto gain",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+--section
+local Section = mainTab:AddSection({
+  Name = "farm"
+})
+
+--buttons
+mainTab:AddButton({
+  Name = "maximum multiple!",
+  Callback = function()
+      local args = {
+        [1] = 900000 * 100000
+      }
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("DoublePower"):FireServer(unpack(args))
+          print("button pressed")
+    end    
+})
+mainTab:AddButton({
+  Name= "instant 10b spin",
+  Callback = function()
 local args = {
-    [1] = {
-        ["drawCardPlatformId"] = 70001,
-        ["count"] = 3
-    }
+    [1] = "Power",
+    [2] = 99999999999
 }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ExtractHero"):InvokeServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AddWheelSpinValue"):FireServer(unpack(args))
+           print("button pressed")
+    end    
+})  
+
+mainTab:AddButton({
+  Name= "100 spin",
+  Callback = function()
+local args = {
+    [1] = "Spins",
+    [2] = 100
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ClaimReward"):FireServer(unpack(args))
+            print("buttonPressed")
+         end
+})
+
+serectTab:AddButton({
+  Name = "Invite Pet" ,
+  Callback = function()
+      local args = {
+        [1] = true
+      }
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ClaimTimePet"):InvokeServer(unpack(args))
+          print("button pressed")
+    end   
+    
+})
+--values 
+getgenv().daily = false
+getgenv().Jungle = false
+getgenv().heaven = false
+getgenv().Magma = false
+--function 
+function dodaily()
+          while getgenv().daily == true do
+                  game:GetService("ReplicatedStorage"):WaitForChild("DailyEvents"):WaitForChild("ClaimDaily"):FireServer()
+                       
+                wait(0.05)
+       end
+end   
+function doJungle ()     
+      while getgenv().Jungle == true do
+                  local args = {
+                              [1] = 10
+}
+
+                   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("BuyEgg"):InvokeServer(unpack(args))
+                       
+                wait(0.05)
+       end
+end
+function doheaven ()              
+       while getgenv().heaven == true do
+                  local args = {
+                              [1] = 25
+}
+
+                   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("BuyEgg"):InvokeServer(unpack(args))
+                wait(0.05)
+       end
+end   
+ function doMagma ()          
+       while getgenv().Magma == true do
+                  local args = {
+                              [1] = 50
+}
+
+                   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("BuyEgg"):InvokeServer(unpack(args))
+                       
+                wait(0.05)
+       end
+end         
+--toggles
+serectTab:AddToggle({
+  Name = "daily rewards",
+  Default = false,
+  Callback = function(bool)
+    getgenv().daily = bool
+    if bool then 
+      dodaily()
+    end
+  end})
+hatchTab:AddToggle({
+  Name = "Jungle eggs",
+  Default = false,
+  Callback = function(bool)
+    getgenv().Jungle  = bool
+    if bool then 
+      doJungle ()
+    end
+  end})
+  
+ hatchTab:AddToggle({
+  Name = "heaven egg",
+  Default = false,
+  Callback = function(bool)
+    getgenv().heaven= bool
+    if bool then 
+      doheaven()
+    end
+  end})
+  
+  hatchTab:AddToggle({
+  Name = "Magma egg",
+  Default = false,
+  Callback = function(bool)
+    getgenv().Magma= bool
+    if bool then 
+      doMagma()
+    end
+  end})
+  
