@@ -80,7 +80,7 @@ getgenv().sc = false
 getgenv().ic = false
 getgenv().lc = false
 getgenv().ec = false
-getgenv().dm = false
+getgenv().dg = false
 getgenv().ds = false
 getgenv().de = false
 getgenv().dc = false
@@ -335,7 +335,7 @@ function dolighting()
     end
 end
 
-function dopu()
+function dopurple()
            while getgenv().purple  == true do
                           local args = {
                                      [1] = "openCrystal",
@@ -408,8 +408,8 @@ function doec()
     end
 end
 
-function dodm()
-           while getgenv().em  == true do
+function dodg()
+           while getgenv().dg  == true do
                           local args = {
                                   [1] = "collectOrb",
                                   [2] = "Gem",
