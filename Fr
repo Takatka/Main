@@ -4,14 +4,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "All universe hub ", HidePremium = false, IntroText = "All universe hub", SaveConfig = true, ConfigFolder = "OrionTest"})
 
 --tabs
-local creditTab = Window:MakeTab({
-  Name = "credit",
-  Icon = "rbxassetid://4483345998",
-  PremiumOnly = false
-})
 
 local informationTab = Window:MakeTab({
-  Name = "Information",
+  Name = "information",
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
 })
@@ -47,7 +42,7 @@ local legendTab = Window:MakeTab({
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
 })
-local tpTab = Window:MakeTab({
+local chestTab = Window:MakeTab({
   Name = "chest  ",
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
@@ -794,7 +789,7 @@ wait()
       		print("button pressed")
   	end    
 })
-tpTab:AddButton({
+chestTab:AddButton({
 	Name = "level 5 chest",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1616.4986572265625, 22.90522003173828, -494.6098937988281)
@@ -802,7 +797,7 @@ wait()
       		print("button pressed")
   	end    
 })
-tpTab:AddButton({
+chestTab:AddButton({
 	Name = "level 15 chest",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2232.185302734375, 315.925048828125, 1019.5503540039062)
@@ -810,7 +805,7 @@ wait()
       		print("button pressed")
   	end    
 })
-tpTab:AddButton({
+chestTab:AddButton({
 	Name = "level 35 chest",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2495.94677734375, 20.946552276611328, -2125.27001953125)
@@ -818,7 +813,7 @@ wait()
       		print("button pressed")
   	end    
 })
-tpTab:AddButton({
+chestTab:AddButton({
 	Name = "level 50 chest",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1576.5751953125, 103.34820556640625, 5677.7392578125)
@@ -827,9 +822,7 @@ wait()
   	end    
 })
 
-creditTab:AddParagraph("scripters","Akira(sexy) & illumi(the great)")
-creditTab:AddParagraph("yungking4206 help to get all crystal places ")
-creditTab:AddButton({
+informationTab:AddButton({
   Name = "Copy Discord link",
   Callback = function()
       setclipboard("https://discord.gg/mVKw8GDy")
@@ -837,7 +830,7 @@ creditTab:AddButton({
   end    
 })
 
-creditTab:AddButton({
+informationTab:AddButton({
   Name = "Copy youtube link",
   Callback = function()
       setclipboard("https://www.youtube.com/@takatakgamer8521?si=q94tBpxKXPYuCCFM")
