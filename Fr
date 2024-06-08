@@ -32,7 +32,7 @@ local MagmaTab = Window:MakeTab({
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
 })
-local dTab = Window:MakeTab({
+local DesertTab = Window:MakeTab({
   Name = "Speed Desert ",
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
@@ -43,7 +43,7 @@ local legendTab = Window:MakeTab({
   PremiumOnly = false
 })
 local chestTab = Window:MakeTab({
-  Name = "chest  ",
+  Name = "chest ",
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
 })
@@ -704,7 +704,7 @@ legendTab:AddToggle({
       end
     end}) 
     
-    dTab:AddToggle({
+    DesertTab:AddToggle({
     Name = "auto gems ",
     Default = false,
     Callback = function(bool)
@@ -714,7 +714,7 @@ legendTab:AddToggle({
       end
     end}) 
     
-    dTab:AddToggle({
+    DesertTab:AddToggle({
     Name = "auto speed",
     Default = false,
     Callback = function(bool)
@@ -724,7 +724,7 @@ legendTab:AddToggle({
       end
     end}) 
     
-    dTab:AddToggle({
+    DesertTab:AddToggle({
     Name = "auto exp",
     Default = false,
     Callback = function(bool)
@@ -734,7 +734,7 @@ legendTab:AddToggle({
       end
     end}) 
     
-    dTabAddToggle({
+    DesertTab:AddToggle({
     Name = "auto 40k gems egg",
     Default = false,
     Callback = function(bool)
@@ -790,7 +790,7 @@ wait()
   	end    
 })
 chestTab:AddButton({
-	Name = "level 5 chest",
+	Name = "level 5 ",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1616.4986572265625, 22.90522003173828, -494.6098937988281)
 wait()
@@ -798,7 +798,7 @@ wait()
   	end    
 })
 chestTab:AddButton({
-	Name = "level 15 chest",
+	Name = "level 15 ",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2232.185302734375, 315.925048828125, 1019.5503540039062)
 wait()
@@ -806,7 +806,7 @@ wait()
   	end    
 })
 chestTab:AddButton({
-	Name = "level 35 chest",
+	Name = "level 35 ",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2495.94677734375, 20.946552276611328, -2125.27001953125)
 wait()
@@ -814,7 +814,7 @@ wait()
   	end    
 })
 chestTab:AddButton({
-	Name = "level 50 chest",
+	Name = "level 50 ",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1576.5751953125, 103.34820556640625, 5677.7392578125)
 wait()
