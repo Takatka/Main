@@ -1,0 +1,86 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+--window
+local Window = OrionLib:MakeWindow({Name = "All universe hub kamehameha sim", HidePremium = false, IntroText = "All universe hub", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--tabs
+local mainTab = Window:MakeTab({
+  Name = "main",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+local islandTab = Window:MakeTab({
+  Name = "island",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+
+getgenv().katana = false
+function dokatana()
+           while getgenv().katana ==true do
+                          local args = {
+                                     [1] = "swingKatana"
+                                                         
+}
+
+               game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args))
+
+        
+        wait(0.001)     
+    end
+end
+
+mainTab:AddToggle({
+  Name = "auto gain",
+  Default = false,
+  Callback = function(bool)
+    getgenv().katana = bool
+    if bool then 
+      dokatana()
+    end
+  end})
+
+getgenv().katana = false
+
+function dobuy()
+           while getgenv().buy  do
+                          local args = {
+                                     [1] = "buyAllSwords",
+                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame       
+}
+
+               game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args));
+                        local args = {
+                                     [1] = "buyAllBelts",
+                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame       
+}
+
+               game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args));
+                         local args = {
+                                     [1] = "buyAllSkills",
+                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame}      
+
+               game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args));
+                        local args = {
+                                     [1] = "buyAllShurikens",
+                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame       
+}
+
+               game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args))
+               
+                              
+                    
+        wait(0.015)     
+    end
+end
+
+mainTab:AddToggle({
+  Name = "auto buy",
+  Default = false,
+  Callback = function(bool)
+    getgenv().buy = bool
+    if bool then 
+      dobuy()
+    end
+  end})
