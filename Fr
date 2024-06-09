@@ -103,7 +103,7 @@ function dospeed
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
 		local args = {[1]="collectOrb",[2]="Yellow Orb",[3]="Desert"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
-		wait(0.001);
+		wait(0.004);
 	end
 end
 function doHighway()
@@ -118,7 +118,7 @@ function doHighway()
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
 		local args = {[1]="collectOrb",[2]="Yellow Orb",[3]="Legends Highway"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
-		wait();
+		wait(0.004);
 	end
 end
 
