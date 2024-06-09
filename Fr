@@ -11,6 +11,7 @@ getgenv().rebirth = false;
 getgenv().City = false;
 getgenv().Snow = false;
 getgenv().Magma = false;
+getgenv().speed = false;
 getgenv().Highway = false;
 
 
@@ -57,7 +58,7 @@ function doCity()
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
 		local args = {[1]="collectOrb",[2]="Yellow Orb",[3]="City"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
-		wait(0.005);
+		wait(0.004);
 	end
 end
 function doSnow()
@@ -72,7 +73,7 @@ function doSnow()
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
 		local args = {[1]="collectOrb",[2]="Yellow Orb",[3]="Snow City"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
-		wait(0.005);
+		wait(0.004);
 	end
 end
 function doMagma()
@@ -86,6 +87,21 @@ function doMagma()
 		local args = {[1]="collectOrb",[2]="Red Orb",[3]="Magma City"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
 		local args = {[1]="collectOrb",[2]="Yellow Orb",[3]="Magma City"};
+		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
+		wait(0.004);
+	end
+end
+function dospeed
+	while getgenv().speed do
+		local args = {[1]="collectOrb",[2]="Gem",[3]="Desert"};
+		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
+		local args = {[1]="collectOrb",[2]="Blue Orb",[3]="Desert"};
+		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
+		local args = {[1]="collectOrb",[2]="Orange Orb",[3]="Desert"};
+		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
+		local args = {[1]="collectOrb",[2]="Red Orb",[3]="Desert"};
+		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
+		local args = {[1]="collectOrb",[2]="Yellow Orb",[3]="Desert"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
 		wait(0.001);
 	end
@@ -124,7 +140,14 @@ normal:AddToggle({Name="Auto Level Magma",Default=false,Callback=function(bool)
 		doMagma();
 	end
 end});
-normal:AddToggle({Name="Auto Level HW",Default=false,Callback=function(bool)
+normal:AddToggle({Name="Auto Level Speed Desert",Default=false,Callback=function(bool)
+	getgenv().speed = bool;
+	if bool then
+		dospeed();
+	end
+end});
+
+normal:AddToggle({Name="Auto Level Legend Highway",Default=false,Callback=function(bool)
 	getgenv().Highway = bool;
 	if bool then
 		doHighway();
