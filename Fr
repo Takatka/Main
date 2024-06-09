@@ -91,7 +91,7 @@ function doMagma()
 		wait(0.004);
 	end
 end
-function dospeed
+function dospeed()
 	while getgenv().speed do
 		local args = {[1]="collectOrb",[2]="Gem",[3]="Desert"};
 		game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args));
