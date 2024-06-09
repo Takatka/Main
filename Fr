@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))();
-local Window = OrionLib:MakeWindow({Name="All universe hub kamehameha sim",HidePremium=false,IntroText="All universe hub",SaveConfig=true,ConfigFolder="OrionTest"});
+local Window = OrionLib:MakeWindow({Name="ALLUNIVERSEHUB",HidePremium=false,IntroText="All universe hub",SaveConfig=true,ConfigFolder="OrionTest"});
 local informationTab = Window:MakeTab({Name="information",Icon="rbxassetid://4483345998",PremiumOnly=false});
 local mainTab = Window:MakeTab({Name="main",Icon="rbxassetid://4483345998",PremiumOnly=false});
 local normal = Window:MakeTab({Name="auto gain ",Icon="rbxassetid://4483345998",PremiumOnly=false});
