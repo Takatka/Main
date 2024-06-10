@@ -9,6 +9,7 @@ local mainTab = Window:MakeTab({
   Icon = "rbxassetid://4483345998",
   PremiumOnly = false
 })
+
 local islandTab = Window:MakeTab({
   Name = "island",
   Icon = "rbxassetid://4483345998",
@@ -27,7 +28,7 @@ function dokatana()
                game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args))
 
         
-        wait(0.001)     
+        wait(0.0001)     
     end
 end
 
@@ -41,37 +42,38 @@ mainTab:AddToggle({
     end
   end})
 
-getgenv().katana = false
+getgenv().buy = false
 
 function dobuy()
            while getgenv().buy  do
                           local args = {
                                      [1] = "buyAllSwords",
-                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame       
+                                     [2] =   "Blazing Vortex Island"       
 }
 
                game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args));
                         local args = {
                                      [1] = "buyAllBelts",
-                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame       
+                                     [2] =   "Blazing Vortex Island"       
 }
 
                game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args));
                          local args = {
                                      [1] = "buyAllSkills",
-                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame}      
+                                     [2] =   "Blazing Vortex Island"
+}      
 
                game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args));
                         local args = {
                                      [1] = "buyAllShurikens",
-                                     [2] =   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame       
+                                     [2] =   "Blazing Vortex Island"       
 }
 
                game:GetService("Players").LocalPlayer:WaitForChild("ninjaEvent"):FireServer(unpack(args))
                
                               
                     
-        wait(0.015)     
+        wait(0.1)     
     end
 end
 
@@ -84,3 +86,60 @@ mainTab:AddToggle({
       dobuy()
     end
   end})
+  
+  
+
+IslandTab:AddDropdown({
+    Name = "Island",
+    Default = "Ground",
+    Options ={"Enchante", "Astral Island","Mystical ISLAND", "Space Island", "Tundra Island", "Eternal Island", "Sandstorm", "Thunderstorm Island", "Ancient Inferno Island", "Midnight Shadow Island", "Mythical Souls Island", "Winter Wonder Island", "Golden Master Island", "Dragon Legend Island", "Cybernetic Legends Island", "Skystorm Ultraus Island", "Chaos Legends Island", "Soul Fusion Island","Dark Element Island", "Inner Peace Island", "Blazing Vortex Island"},
+    Callback = function(Value)
+    getgenv().Island = Value
+    end})
+    islandTab:AddButton({Name="Teleport To Selected Island",Callback=function()
+        if getgenv().Island == Enchante  then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(46.58063888549805, 772.9013671875, -185.13809204101562)
+     elseif getgenv().Island == Astral Island  then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(238.77723693847656, 2013.6630859375, 294.6522521972656)
+     elseif getgenv().Island == Mystical Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(210.98037719726562, 4054.101318359375, 63.246055603027344)
+     elseif getgenv().Island == Space Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.7684783935547, 5656.9560546875, 12.937899589538574)
+      elseif getgenv().Island == Tundra Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.7684783935547, 9284.955078125, 12.937899589538574)
+      elseif getgenv().Island == Eternal Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202.09437561035156, 13681.4609375, 2.4032206535339355)
+      elseif getgenv().Island == Sandstorm then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.7684783935547, 17686.1015625, 12.9379005432128)
+      elseif getgenv().Island == Thunderstorm Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(139.31893920898438, 24069.8046875, 62.24717712402344)   
+       elseif getgenv().Island == Ancient Inferno Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(142.7900848388672, 28256.078125, 63.423709869384766)        
+       elseif getgenv().Island == Midnight Shadow Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(144.37857055664062, 33206.76171875, 76.0198745727539)
+       elseif getgenv().Island == Mythical Souls Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(131.72267150878906, 39317.3515625, 68.5940933227539)
+       elseif getgenv().Island == Winter Wonder Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(197.9363250732422, 46010.328125, 5.599513530731201)
+      elseif getgenv().Island == Golden Master Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(195.45761108398438, 52607.53515625, 4.132269859313965)
+       elseif getgenv().Island == Dragon Legend Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.99533081054688, 59595.3515625, -0.5625442266464233)  
+      elseif getgenv().Island == Cybernetic Legends Island  then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(197.868408203125, 66668.9296875, 7.03826379776001)
+     elseif getgenv().Island == Skystorm Ultraus Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(197.8685302734375, 70270.921875, 7.038086891174316) 
+      elseif getgenv().Island == Chaos Legends Island  then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200.05856323242188, 74442.625, 4.558948040008545)   
+       elseif getgenv().Island == Soul Fusion Island  then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(193.54505920410156, 79746.609375, 16.33885383605957)
+        elseif getgenv().Island == Dark Element Island  then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(196.38250732421875, 83198.75, 11.7978515625)
+       elseif getgenv().Island == Inner Peace Island  then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(201.13473510742188, 87050.8359375, 7.533940315246582)
+       elseif getgenv().Island == Blazing Vortex Island then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202.28079223632812, 91246.2734375, 2.3770620822906494)
+         
+         end
+end
+})             
