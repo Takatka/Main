@@ -122,7 +122,7 @@ end
 })
 
 serectTab:AddButton({
-  Name= "elementMastery",
+  Name= "all Elements",
   Callback = function()
 local elementMastery = {
     "Inferno",
@@ -136,13 +136,19 @@ local elementMastery = {
     "Shadowfire"
 }
 
-for i, code in pairs(elementMastery) do
-    local args = { [1] = elementMastery }
-    game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+for _, elementMastery in pairs(elementMastery) do
+    local args = { [1] = elementMastery };
+    game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args));
 end
             print("buttonPressed")
          end
 })
+local args = {
+    [1] = "Masterful Wrath"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
 function dojoinDuel()
 	while getgenv().joinDuel do
 		local args = {[1]="joinDuel"};
@@ -157,15 +163,37 @@ mainTab:AddToggle({Name="auto joinDuel",Default=false,Callback=function(bool)
 		dojoinDuel();
 	end
 end});
+
+serectTab:AddButton({
+  Name= "Inf Jumping",
+  Callback = function()
+local player = game.Players.LocalPlayer
+local userInputService = game:GetService("UserInputService")
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local jumping = false
+--function to jump
+local function onJumpRequest()
+    if humanoid and humanoid:GetState() == Enum.HumanoidStateType.Freefall then
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end
+
+userInputService.JumpRequest:Connect(onJumpRequest)
+
+            print("buttonPressed")
+         end
+})
+
 serectTab:AddButton({
   Name= "chest",
   Callback = function()
-local chest = {
+local checkChest = {
     "Soul Fusion Chest",
     "Chaos Legends Chest",
-    "Skystorm Masters Chest,
+    "Skystorm Masters Chest",
     "Ultra Ninjistu Chest",
-    "Golden Zen Chest,
+    "Golden Zen Chest",
     "Wonder chest",
     "Midnight Shadow Chest",
     "Ancient Chest",
@@ -178,9 +206,9 @@ local chest = {
     "Enchanted Chest"
 }
 
-for i, code in pairs(chest) do
-    local args = { [1] = chest }
-    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args))
+for _, checkChest in pairs(checkChest) do
+    local args = { [1] = checkChest };
+    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args));
 end
             print("buttonPressed")
          end
